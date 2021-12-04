@@ -1,5 +1,5 @@
 .List {
-  background-color: rgb(166, 97, 231);
+  background-color: rgb(231, 224, 238);
   height: 60%;
   width: 15%;
   border: solid 1px whitesmoke;
@@ -10,7 +10,7 @@
   border: solid 2px whitesmoke;
 } */
 .button {
-  background-color: #17c008;
+  background-color: #1e7514;
   border: none;
   color: white;
   padding: 15px 32px;
