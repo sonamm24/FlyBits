@@ -6,14 +6,14 @@ import {Branches} from '../../Common/Data';
 
 export class BranchList extends React.Component {
 
-  generateBranchItems(item){
+  generateBranchItem(item){
     const name = item.name;
     return <BranchItem key={name} branchId={name}/>;
   }
 
   render() {
 
-    const listOfBranches = Branches.map(this.generateBranchItems); 
+    const listOfBranches = Branches.map(this.generateBranchItem); 
 
     return (
     <div className="List BranchList">
