@@ -1,15 +1,26 @@
 import React from "react";
-import Latitude from "./Components/MovementSimulator/Latitude/Latitude";
-import Longitude from "./Components/MovementSimulator/Longitude/Longitude";
-export class EndUser extends React.Component {
+import './EndUser.css';
 
+import { Latitude } from "./Components/MovementSimulator/Latitude/Latitude";
+import { Longitude } from "./Components/MovementSimulator/Longitude/Longitude";
+import { Map } from "./Components/MovementSimulator/Map/Map";
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
+
+
+export class EndUser extends React.Component {
   render() {
+    const render = (status) => {
+      return <h1>{status}</h1>;
+    };
     return (
-    <div className="EndUser">
+      <div className="EndUser">
         <h1>Movement Simulator</h1>
-        <Latitude/>
-        <Longitude/>
-    </div>
+        <Latitude />
+        <Longitude />
+        <Wrapper apiKey={'AIzaSyBg2eVThhibwLP2ujP9p5nwgFfVZvJlijg'} render={render}>
+          <Map />
+        </Wrapper>
+      </div>
     );
   }
 }

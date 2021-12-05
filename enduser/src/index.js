@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './EndUser.css';
+import './index.css';
 import EndUser from './EndUser';
 import reportWebVitals from './reportWebVitals';
 
