@@ -1,19 +1,9 @@
 import React from 'react';
 import './MapViewer.css';
-import { Status, Marker } from "@googlemaps/react-wrapper";
 import { Branches } from '../../Common/Data';
 
 
 export class MapViewer extends React.Component {
-
-  generateMarkers(bankBranch){
-    const MapPosition = {
-      lat: bankBranch.latitude,
-      lng: bankBranch.longitude
-    }
-    
-    return <Marker/>;
-  }
 
   constructor(props) {
     super(props);
@@ -27,22 +17,40 @@ export class MapViewer extends React.Component {
     }
 
     this.map = null;
+    this.listOfMarkers = [];
   }
 
   componentDidMount() {
     this.map = new window.google.maps.Map(this.mapRef.current, this.mapOptions);
 
+    if(this.map) {
+      this.generateMarkers();
+    }
+  }
 
+  generateMarkers() {
+    Branches.forEach(
+      (bankBranch) => {
+        const MapPosition = new window.google.maps.LatLng(
+          bankBranch.latitude,
+          bankBranch.longitude
+        );
+        const markerOptions = {
+          position: MapPosition,
+          map: this.map
+        };
+        this.listOfMarkers.push(
+          new window.google.maps.Marker(markerOptions)
+        );
+      }
+    )
   }
 
   render() {
-    
-    const listOfMarkers = Branches.map(this.generateMarkers); 
     return (
       <div className="Map" ref={this.mapRef}>
-        {listOfMarkers}
       </div>
     );
-    
+
   }
 }

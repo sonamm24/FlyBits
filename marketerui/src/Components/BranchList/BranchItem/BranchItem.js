@@ -13,7 +13,7 @@ export class BranchItem extends React.Component {
   render() {
     return (
     <div className="BranchItem">
-        <button class="button">{this.state.branchId}</button>
+        <button className="button">{this.state.branchId}</button>
     </div>
     );
   }
