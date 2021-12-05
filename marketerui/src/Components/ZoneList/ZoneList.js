@@ -62,7 +62,7 @@ export class ZoneList extends React.Component {
         <div className="ZoneListBody">
           {this.state.zones}
         </div>
-        <button class="buttonAdd" onClick={() => this.addZone()}>Add</button>
+        <button className="buttonAdd" onClick={() => this.addZone()}>Add</button>
       </div>
     );
   }
