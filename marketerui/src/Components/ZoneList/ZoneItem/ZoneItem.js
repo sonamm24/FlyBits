@@ -3,21 +3,28 @@ import './ZoneItem.css';
 
 export class ZoneItem extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      zoneid: props.zoneid
+    };
+
+    this.deleteZone = props.onDelete;
+  }
   render() {
     return (
       <div className="ZoneItem">
         <div className="ZoneItemInfo">
-          TEXT 
-          </div>
+          {this.state.zoneid}
+        </div>
         <div className="ZoneItemControls">
-          <button class="button">
+          <button className="button">
             Edit
-            </button>
-          <button class="button">
+          </button>
+          <button className="button" onClick={() => this.deleteZone()}>
             Delete
-            </button></div>
-
-
+          </button>
+        </div>
       </div>
     );
   }
