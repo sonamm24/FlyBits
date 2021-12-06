@@ -3,7 +3,7 @@ import './MovementSimulator.css';
 
 import { ManualEntry } from "./ManualEntry/ManualEntry";
 import { Map } from "./Map/Map";
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import { Wrapper } from "@googlemaps/react-wrapper";
 
 
 export class MovementSimulator extends React.Component {
@@ -18,20 +18,17 @@ export class MovementSimulator extends React.Component {
       }
     }
 
+    this.requestPromos = props.onPromoRequest;
+    this.requestPromos(this.state.location);
   }
 
   updateLocation(position) {
-    const { webSocket } = this.props;
     this.setState(
       {
         location: position
       }
     );
-    const message = {
-      type: "getPromos",
-      location: position
-    }
-    webSocket.send(JSON.stringify(message));
+    this.requestPromos(position);
   }
 
   render() {
