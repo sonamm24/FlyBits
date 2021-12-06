@@ -18,10 +18,10 @@ export class ZoneItem extends React.Component {
           {this.state.zoneid}
         </div>
         <div className="ZoneItemControls">
-          <button className="button">
+          <button className="button-1">
             Edit
           </button>
-          <button className="button" onClick={() => this.deleteZone()}>
+          <button className="button-1" onClick={() => this.deleteZone()}>
             Delete
           </button>
         </div>

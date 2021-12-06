@@ -17,7 +17,7 @@ export class BranchList extends React.Component {
 
     return (
     <div className="List BranchList">
-        <h1>Branches</h1>
+        <h2 class="heading">Branches</h2>
         {listOfBranches}
     </div>
     );
