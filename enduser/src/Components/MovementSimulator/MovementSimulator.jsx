@@ -21,11 +21,17 @@ export class MovementSimulator extends React.Component {
   }
 
   updateLocation(position) {
+    const { webSocket } = this.props;
     this.setState(
       {
         location: position
       }
     );
+    const message = {
+      type: "getPromos",
+      location: position
+    }
+    webSocket.send(JSON.stringify(message));
   }
 
   render() {
@@ -34,15 +40,10 @@ export class MovementSimulator extends React.Component {
     };
     return (
       <div className="MovementSimulator">
-        <h1>Movement Simulator</h1>
-        <div className="MovementBody">
-          <ManualEntry onSubmit={(data) => this.updateLocation(data)}/>
-          <div className="Right">
-            <Wrapper apiKey={'AIzaSyBg2eVThhibwLP2ujP9p5nwgFfVZvJlijg'} render={render}>
-              <Map userLocation={this.state.location}/>
-            </Wrapper>
-          </div>
-        </div>
+        <ManualEntry onSubmit={(data) => this.updateLocation(data)} />
+        <Wrapper apiKey={'AIzaSyBg2eVThhibwLP2ujP9p5nwgFfVZvJlijg'} render={render}>
+          <Map userLocation={this.state.location} />
+        </Wrapper>
       </div>
     );
   }

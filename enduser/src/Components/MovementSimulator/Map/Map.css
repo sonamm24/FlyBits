@@ -1,5 +1,7 @@
 .Map {
-  background-color: blanchedalmond;
-  width: 600px;
-  height: 350px;
+  width: calc(100% - 350px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
