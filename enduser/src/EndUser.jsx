@@ -16,6 +16,9 @@ export class EndUser extends React.Component {
 
     this.ws.onmessage = (event) => {
         console.log(event);
+        if(event.type === 'promos') {
+          this.offerList = event.data;
+        }
       };
 
     this.ws.onclose = () => {
@@ -23,14 +26,19 @@ export class EndUser extends React.Component {
       };
   }
 
+  requestPromos(location) {
+    const message = {
+      action: "getPromos",
+      location: location
+    }
+    this.ws.send(JSON.stringify(message));
+  }
+
   render() {
-    const render = (status) => {
-      return <h1>{status}</h1>;
-    };
     return (
       <div className="EndUser">
-        <MovementSimulator webSocket={this.ws}/>
-        <ListOfOffers webSocket={this.ws}/>
+        <MovementSimulator onPromoRequest={(location) => this.requestPromos(location)}/>
+        <ListOfOffers Offers={this.offerList}/>
       </div>
     );
   }

@@ -4,13 +4,12 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('server:server');
-var http = require('http');
-var WebSocket = require('ws');
+const app = require('../app');
+const debug = require('debug')('server:server');
+const http = require('http');
+const WebSocket = require('ws');
 
-const Branches = require('../data/testData');
-const Offers = require('../data/testData');
+const onConnect = require('../zonemanager');
 
 let zonesList = Offers;
 
@@ -18,22 +17,20 @@ let zonesList = Offers;
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 const webSocketServer = new WebSocket.Server({ server });
 
 webSocketServer.on(
   'connection',
   (ws) => {
-    ws.send("hello world!");
-    console.log('open');
     onConnect(ws);
   }
 );
@@ -51,7 +48,7 @@ server.on('listening', onListening);
  */
 
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  let port = parseInt(val, 10);
 
   if (isNaN(port)) {
     // named pipe
@@ -75,7 +72,7 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof port === 'string'
+  let bind = typeof port === 'string'
     ? 'Pipe ' + port
     : 'Port ' + port;
 
@@ -99,25 +96,9 @@ function onError(error) {
  */
 
 function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
+  let addr = server.address();
+  let bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
-}
-
-function onConnect(webSocket) {
-  webSocket.send("Hello World!");
-
-  webSocket.on(
-    'message',
-    (data) => {
-      console.log("message received");
-      console.log(JSON.parse(data));
-    }
-  )
-}
-
-function addZone(zoneToAdd) {
-  zonesList.push(zoneToAdd);
 }

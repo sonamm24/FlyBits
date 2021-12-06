@@ -6,6 +6,14 @@ import { Offers } from '../../Common/Data';
 
 export class ListOfOffers extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      offers: props.Offers
+    }
+  }
+
   generateOfferItem(item) {
     const Img = item.img;
     const Caption = item.caption;
@@ -15,7 +23,7 @@ export class ListOfOffers extends React.Component {
 
   render() {
 
-    const listOfOffers = Offers.map(this.generateOfferItem);
+    const listOfOffers = this.state.offers.map(this.generateOfferItem);
 
     return (
       <div className="ListOfOffers">
