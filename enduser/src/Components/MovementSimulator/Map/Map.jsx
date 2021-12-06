@@ -7,43 +7,57 @@ export class Map extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      markerLocation: this.props.userLocation
+    }
+
     this.mapRef = React.createRef();
     this.mapOptions = {
-      center: {
-        lat: 43.4567123445,
-        lng: -80.124562443
-      },
+      center: this.props.userLocation,
       zoom: 14
     }
 
     this.map = null;
-    this.listOfMarkers = [];
+    this.marker = null;
   }
 
   componentDidMount() {
     this.map = new window.google.maps.Map(this.mapRef.current, this.mapOptions);
 
-    if(this.map) {
-      this.generateMarkers();
+    if (this.map) {
+      this.marker = this.generateMarker();
     }
   }
 
-  generateMarkers() {
-    Branches.forEach(
-      (bankBranch) => {
-        const MapPosition = new window.google.maps.LatLng(
-          bankBranch.latitude,
-          bankBranch.longitude
-        );
-        const markerOptions = {
-          position: MapPosition,
-          map: this.map
-        };
-        this.listOfMarkers.push(
-          new window.google.maps.Marker(markerOptions)
-        );
+  componentDidUpdate(prevProps, prevState) {
+    //check if there was a change in the user location
+    if (prevState.markerLocation.lat !== this.props.userLocation.lat ||
+      prevState.markerLocation.lng !== this.props.userLocation.lng) {
+
+      //update state
+      this.setState(
+        {
+          markerLocation: this.props.userLocation
+        }
+      )
+
+      //draw marker onto map
+      if (this.map) {
+        this.marker.setMap(null);
+        this.marker = null;
+        this.marker = this.generateMarker();
+        this.map.setCenter(this.state.markerLocation);
       }
-    )
+    }
+  }
+
+  generateMarker() {
+    const markerOptions = {
+      position: this.state.markerLocation,
+      map: this.map
+    };
+    return new window.google.maps.Marker(markerOptions)
   }
 
   render() {
