@@ -1,16 +1,7 @@
 .MovementSimulator {
-  height: 30%;
-  margin-right: 1em;
-}
-
-.MovementBody {
   display: flex;
   flex-direction: row;
-  margin-right: 1em;
-}
+  height: 30%;
+  width: 100%;
 
-.Left {
-  display: flex;
-  flex-direction: column;
-  width: 20%;
 }

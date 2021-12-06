@@ -1,4 +1,22 @@
+.ManualEntry {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.form-group Input {
+  width: 150px;
+}
+
 .Latitude {
-  
   margin-bottom: 1em;
 }

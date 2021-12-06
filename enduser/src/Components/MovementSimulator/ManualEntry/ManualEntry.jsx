@@ -26,12 +26,13 @@ export class ManualEntry extends React.Component {
   render() {
     return (
       <div className="ManualEntry">
+        <h1>Movement Simulator</h1>
         <div className="form">
-          <div className="form-group">
+          <div className="form-group Longitude">
             <label htmlFor="longitude">Longitude:</label>
             <input id="longitude" type="text" ref={this.longitudeInput}/>
           </div>
-          <div className="form-group">
+          <div className="form-group Latitude">
             <label htmlFor="latitude">Latitude:</label>
             <input id="latitude" type="text" ref={this.latitudeInput}/>
           </div>
