@@ -1,4 +1,8 @@
 import React from "react";
+import './Longitude.css';
+
+
+
 export class Longitude extends React.Component {
 
   render() {

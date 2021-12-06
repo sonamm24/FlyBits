@@ -1,6 +1,6 @@
 import React from "react";
 import './EndUser.css';
-
+import { ListOfOffers } from "./Components/ListOfOffers/ListOfOffers";
 import { Latitude } from "./Components/MovementSimulator/Latitude/Latitude";
 import { Longitude } from "./Components/MovementSimulator/Longitude/Longitude";
 import { Map } from "./Components/MovementSimulator/Map/Map";
@@ -20,6 +20,7 @@ export class EndUser extends React.Component {
         <Wrapper apiKey={'AIzaSyBg2eVThhibwLP2ujP9p5nwgFfVZvJlijg'} render={render}>
           <Map />
         </Wrapper>
+        <ListOfOffers />
       </div>
     );
   }

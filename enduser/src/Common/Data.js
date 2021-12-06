@@ -25,3 +25,22 @@ export const Branches = [
     name: "Branch 5"
   }
 ];
+
+export const Offers =[
+  {
+    img: "https://media.istockphoto.com/photos/mid-adult-couple-working-on-home-finance-picture-id1319766088",
+    caption: "PROMOTION"
+  },
+  {
+    img: "https://assets.ey.com/content/dam/ey-sites/ey-com/en_nl/topics/finance-navigator/insights/ey-fn-12-sources-of-finance-for-entrepreneurs.jpg",
+    caption: "PROMOTION"
+  },
+  {
+    img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Ffinancial&psig=AOvVaw3yxMSlowAbLP6yEE3ShMKD&ust=1638835455961000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJiwxfvvzfQCFQAAAAAdAAAAABAD",
+    caption: "PROMOTION"
+  },
+  {
+    img: "https://assets.ey.com/content/dam/ey-sites/ey-com/en_nl/topics/finance-navigator/insights/ey-fn-12-sources-of-finance-for-entrepreneurs.jpg",
+    caption: "PROMOTION"
+  }
+]
