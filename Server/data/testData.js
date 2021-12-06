@@ -1,4 +1,4 @@
-export const Branches = [
+const Branches = [
   {
     longitude: 43.499197,
     latitude: -80.213843,
@@ -25,3 +25,25 @@ export const Branches = [
     name: "Branch 5"
   }
 ];
+
+const Offers =[
+  {
+    img: "https://media.istockphoto.com/photos/mid-adult-couple-working-on-home-finance-picture-id1319766088",
+    caption: "PROMOTION"
+  },
+  {
+    img: "https://assets.ey.com/content/dam/ey-sites/ey-com/en_nl/topics/finance-navigator/insights/ey-fn-12-sources-of-finance-for-entrepreneurs.jpg",
+    caption: "PROMOTION"
+  },
+  {
+    img: "https://media.istockphoto.com/photos/finance-and-economy-chart-for-dollar-gold-euro-currencies-trading-picture-id1288703928",
+    caption: "PROMOTION"
+  },
+  {
+    img: "https://assets.ey.com/content/dam/ey-sites/ey-com/en_nl/topics/finance-navigator/insights/ey-fn-12-sources-of-finance-for-entrepreneurs.jpg",
+    caption: "PROMOTION"
+  }
+]
+
+export default Branches;
+export default  Offers;

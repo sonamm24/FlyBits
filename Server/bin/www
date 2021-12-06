@@ -7,6 +7,12 @@
 var app = require('../app');
 var debug = require('debug')('server:server');
 var http = require('http');
+var WebSocket = require('ws');
+
+const Branches = require('../data/testData');
+const Offers = require('../data/testData');
+
+let zonesList = Offers;
 
 /**
  * Get port from environment and store in Express.
@@ -20,6 +26,17 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+
+const webSocketServer = new WebSocket.Server({ server });
+
+webSocketServer.on(
+  'connection',
+  (ws) => {
+    ws.send("hello world!");
+    console.log('open');
+    onConnect(ws);
+  }
+);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -87,4 +104,20 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+}
+
+function onConnect(webSocket) {
+  webSocket.send("Hello World!");
+
+  webSocket.on(
+    'message',
+    (data) => {
+      console.log("message received");
+      console.log(JSON.parse(data));
+    }
+  )
+}
+
+function addZone(zoneToAdd) {
+  zonesList.push(zoneToAdd);
 }
