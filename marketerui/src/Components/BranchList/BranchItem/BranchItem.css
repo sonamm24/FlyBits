@@ -1,5 +1,16 @@
-.BranchItem {
-  
 
-}
+  
+  .button {
+    background-color: #cbe9e7;
+    border: none;
+    color: black;
+    padding: 7px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin-top: 1em;
+    cursor: pointer;
+  }
+
 

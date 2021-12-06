@@ -58,7 +58,7 @@ export class ZoneList extends React.Component {
   render() {
     return (
       <div className="List ZoneList">
-        <h1>Zones</h1>
+        <h2 class="heading">Zones</h2>
         <div className="ZoneListBody">
           {this.state.zones}
         </div>
