@@ -11,8 +11,6 @@ const WebSocket = require('ws');
 
 const onConnect = require('../zonemanager');
 
-let zonesList = Offers;
-
 /**
  * Get port from environment and store in Express.
  */

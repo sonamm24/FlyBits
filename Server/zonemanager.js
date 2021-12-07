@@ -1,5 +1,49 @@
-const Branches = require('../data/testData');
-const Zones = require('../data/testData');
+const Zones = [
+  {
+    zone_id: 0,
+    zone_name: "Zone-0",
+    lat: -80.213843,
+    lng: 43.499197,
+    radius: 5,
+    promo: {
+      img: "https://media.istockphoto.com/photos/mid-adult-couple-working-on-home-finance-picture-id1319766088",
+      caption: "PROMOTION"
+    }
+  },
+  {
+    zone_id: 1,
+    zone_name: "Zone-1",
+    lat: -80.22804026340866,
+    lng: 43.496978805182636,
+    radius: 10,
+    promo: {
+      img: "https://assets.ey.com/content/dam/ey-sites/ey-com/en_nl/topics/finance-navigator/insights/ey-fn-12-sources-of-finance-for-entrepreneurs.jpg",
+      caption: "PROMOTION"
+    }
+  },
+  {
+    zone_id: 2,
+    zone_name: "Zone-2",
+    lat: -80.2116811587816,
+    lng: 43.484192487309656,
+    radius: 3,
+    promo: {
+      img: "https://media.istockphoto.com/photos/finance-and-economy-chart-for-dollar-gold-euro-currencies-trading-picture-id1288703928",
+      caption: "PROMOTION"
+    }
+  },
+  {
+    zone_id: 3,
+    zone_name: "Zone-3",
+    lat: -80.21583872128352,
+    lng: 43.51081120760047,
+    radius: 4,
+    promo: {
+      img: "https://assets.ey.com/content/dam/ey-sites/ey-com/en_nl/topics/finance-navigator/insights/ey-fn-12-sources-of-finance-for-entrepreneurs.jpg",
+      caption: "PROMOTION"
+    }
+  }
+];
 
 const GET_PROMOS = 'getPromos';
 const ADD_ZONE = 'addZone';
@@ -62,17 +106,17 @@ function convertLatLngToKm(lat, lng) {
   return { latInKm, lngInKm };
 }
 
-function sendPromoList(location) {
-  let promoList = zonesList.map(
-    (zone) => {
-      let deltaLat = zone.lat - location.lat;
-      let deltaLng = zone.lng - location.lng;
+function sendPromoList(webSocket, location) {
+  let promoList = []
+  global.zonesList.forEach(
+    element => {
+      let deltaLat = element.lat - parseFloat(location.lat);
+      let deltaLng = element.lng - parseFloat(location.lng);
       let { deltaLatInKm, deltaLngInKm } = convertLatLngToKm(deltaLat, deltaLng);
       let distance = Math.sqrt(Math.pow(deltaLngInKm,2) + Math.pow(deltaLatInKm,2));
 
-      if(distance < zone.radius) {
-        return zone.promo;
-      }
+      console.log(distance);
+      promoList.push = element.promo;
     }
   );
 
@@ -83,4 +127,4 @@ function sendPromoList(location) {
   webSocket.send(JSON.stringify(message));
 }
 
-export default onConnect;
+module.exports = onConnect;

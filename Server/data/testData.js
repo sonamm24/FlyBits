@@ -26,7 +26,7 @@ const Branches = [
   }
 ];
 
-const Zones =[
+const Zones = [
   {
     zone_id: 0,
     zone_name: "Zone-0",
@@ -73,5 +73,4 @@ const Zones =[
   }
 ]
 
-export default Branches;
-export default Zones;
+module.export = {Branches, Zones};

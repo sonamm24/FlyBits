@@ -26,21 +26,49 @@ export const Branches = [
   }
 ];
 
-export const Offers =[
+export const Zones = [
   {
-    img: "https://media.istockphoto.com/photos/mid-adult-couple-working-on-home-finance-picture-id1319766088",
-    caption: "PROMOTION"
+    zone_id: 0,
+    zone_name: "Zone-0",
+    lat: -80.213843,
+    lng: 43.499197,
+    radius: 5,
+    promo: {
+      img: "https://media.istockphoto.com/photos/mid-adult-couple-working-on-home-finance-picture-id1319766088",
+      caption: "PROMOTION 1"
+    }
   },
   {
-    img: "https://assets.ey.com/content/dam/ey-sites/ey-com/en_nl/topics/finance-navigator/insights/ey-fn-12-sources-of-finance-for-entrepreneurs.jpg",
-    caption: "PROMOTION"
+    zone_id: 1,
+    zone_name: "Zone-1",
+    lat: -80.22804026340866,
+    lng: 43.496978805182636,
+    radius: 10,
+    promo: {
+      img: "https://assets.ey.com/content/dam/ey-sites/ey-com/en_nl/topics/finance-navigator/insights/ey-fn-12-sources-of-finance-for-entrepreneurs.jpg",
+      caption: "PROMOTION 2"
+    }
   },
   {
-    img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Ffinancial&psig=AOvVaw3yxMSlowAbLP6yEE3ShMKD&ust=1638835455961000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJiwxfvvzfQCFQAAAAAdAAAAABAD",
-    caption: "PROMOTION"
+    zone_id: 2,
+    zone_name: "Zone-2",
+    lat: -80.2116811587816,
+    lng: 43.484192487309656,
+    radius: 3,
+    promo: {
+      img: "https://media.istockphoto.com/photos/finance-and-economy-chart-for-dollar-gold-euro-currencies-trading-picture-id1288703928",
+      caption: "PROMOTION 3"
+    }
   },
   {
-    img: "https://assets.ey.com/content/dam/ey-sites/ey-com/en_nl/topics/finance-navigator/insights/ey-fn-12-sources-of-finance-for-entrepreneurs.jpg",
-    caption: "PROMOTION"
+    zone_id: 3,
+    zone_name: "Zone-3",
+    lat: -80.21583872128352,
+    lng: 43.51081120760047,
+    radius: 4,
+    promo: {
+      img: "https://assets.ey.com/content/dam/ey-sites/ey-com/en_nl/topics/finance-navigator/insights/ey-fn-12-sources-of-finance-for-entrepreneurs.jpg",
+      caption: "PROMOTION 4"
+    }
   }
 ]
